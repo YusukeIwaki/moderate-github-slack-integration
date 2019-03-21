@@ -37,6 +37,10 @@ jobs:
             - vendor/bundle
 
       - run:
+          name: decrypt config/secrets.yml.enc
+          command: bundle exec rake yaml_vault:decrypt
+
+      - run:
           name: Setup DB
           command: bundle exec rake db:create db:migrate
 
