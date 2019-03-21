@@ -11,15 +11,16 @@ gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
   gem 'annotate'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'pry-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'yaml_vault', require: false
 end
 
 group :test do
