@@ -31,5 +31,11 @@ module GithubSlackIntegration
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # ミドルウェアロードより前に読み込む必要があるためここで定義
+    # https://github.com/omniauth/omniauth#integrating-omniauth-into-your-rails-api
+    config.session_store :cookie_store, key: '_github_slack_integration_session'
+    config.middleware.use ActionDispatch::Cookies # Required for all session management
+    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
   end
 end
